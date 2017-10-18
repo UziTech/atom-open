@@ -9,7 +9,7 @@
 	"repository": "https://github.com/UziTech/open",
 	"license": "MIT",
 	"engines": {
-		"atom": ">=1.23.0 <2.0.0"
+		"atom": ">=100.22.0"
 	},
 	"uriHandler": {
 		"method": "handleURI"
