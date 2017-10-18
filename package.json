@@ -2,7 +2,7 @@
 	"name": "open",
 	"main": "index.js",
 	"version": "0.0.1",
-	"description": "Open a file with a url",
+	"description": "Open a file in Atom with a url",
 	"keywords": [
 		"open"
 	],
