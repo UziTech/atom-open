@@ -25,9 +25,21 @@ export default {
 			file += ":" + +uri.query.line;
 			file += (uri.query.column ? ":" + +uri.query.column : "");
 		}
-		atom.open({
-			pathsToOpen: [file]
+
+		const confirm = atom.confirm({
+			message: "Do you want to open the file?",
+			detailedMessage: file,
+			buttons: {
+				"Open": () => true,
+				"Cancel": () => false,
+			}
 		});
+
+		if (confirm) {
+			atom.open({
+				pathsToOpen: [file]
+			});
+		}
 	},
 
 };
