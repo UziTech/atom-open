@@ -6,7 +6,7 @@
   "keywords": [
     "open"
   ],
-  "repository": "https://github.com/UziTech/open",
+  "repository": "https://github.com/UziTech/atom-open",
   "license": "MIT",
   "engines": {
     "atom": ">=100.22.0"
