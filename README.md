@@ -9,3 +9,8 @@ atom://open?url=file://<file_path>[&line=<line>[&column=<column>]]
 ### ⚠️ Note ⚠️
 
 This won't actually do anything until [URI handling](https://github.com/atom/atom/pull/11399) gets released in Atom.
+
+## TODO
+
+*   Only open in project window if already open.
+*   Open entire project if file is part of a project.
