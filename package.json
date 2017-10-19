@@ -13,5 +13,13 @@
   },
   "uriHandler": {
     "method": "handleURI"
-  }
+  },
+	"configSchema": {
+		"confirmBeforeOpen": {
+			"type": "boolean",
+			"default": true,
+			"title": "Confirm",
+			"description": "Should we confirm before opening the file?"
+		}
+	}
 }

@@ -6,7 +6,12 @@ export default {
 	 * Activate package
 	 * @return {void}
 	 */
-	activate() {},
+	activate() {
+		this.confirmBeforeOpen = true;
+		atom.config.observe("open.confirmBeforeOpen", function (value) {
+			this.confirmBeforeOpen = value;
+		});
+	},
 
 	/**
 	 * Deactivate package
@@ -26,14 +31,18 @@ export default {
 			file += (uri.query.column ? ":" + +uri.query.column : "");
 		}
 
-		const confirm = atom.confirm({
-			message: "Do you want to open the file?",
-			detailedMessage: file,
-			buttons: {
-				"Open": () => true,
-				"Cancel": () => false,
-			}
-		});
+		let confirm = true;
+
+		if (this.confirmBeforeOpen) {
+			confirm = atom.confirm({
+				message: "Do you want to open the file?",
+				detailedMessage: file,
+				buttons: {
+					"Open": () => true,
+					"Cancel": () => false,
+				}
+			});
+		}
 
 		if (confirm) {
 			atom.open({
