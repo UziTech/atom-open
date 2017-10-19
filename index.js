@@ -8,7 +8,7 @@ export default {
 	 */
 	activate() {
 		this.confirmBeforeOpen = true;
-		atom.config.observe("open.confirmBeforeOpen", function (value) {
+		atom.config.observe("open.confirmBeforeOpen", (value) => {
 			this.confirmBeforeOpen = value;
 		});
 	},
