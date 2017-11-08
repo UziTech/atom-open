@@ -3,14 +3,20 @@
 This is an atom package to open URLs with the `atom://` protocol that match the [TextMate URL scheme](http://blog.macromates.com/2007/the-textmate-url-scheme/)
 
 ```
-atom://open?url=file://<file_path>[&line=<line>[&column=<column>]]
+atom://open?url=file://<file_path>[&line=<line>[&column=<column>]][&devMode][&safeMode][&newWindow]
 ```
 
-### ⚠️ Note ⚠️
+## Parameters
 
-This won't actually do anything until [URI handling](https://github.com/atom/atom/pull/11399) gets released in Atom.
+*   **url**: The path to the file you want to open. Can start with `file://` to comply with the TextMate standard.
+*   **file**: Synonym to **url**
+*   **line**: The line to set the cursor on
+*   **column**: The column to set the cursor on
+*   **devMode**: If exists will open in dev mode
+*   **safeMode**: If exists will open in safe mode
+*   **newWindow**: If exists will open in a new window even if the file is already open in a window
 
-## TODO
+## Settings
 
-*   Only open in project window if already open.
-*   Open entire project if file is part of a project.
+*   **Confirm**: Confirm before opening the file
+*   **Project**: Open the project folder as well as the file if the file is part of a project

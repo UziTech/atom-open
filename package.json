@@ -9,7 +9,7 @@
   "repository": "https://github.com/UziTech/atom-open",
   "license": "MIT",
   "engines": {
-    "atom": ">=100.22.0"
+    "atom": ">=1.23.0"
   },
   "uriHandler": {
     "method": "handleURI"
@@ -19,7 +19,13 @@
       "type": "boolean",
       "default": true,
       "title": "Confirm",
-      "description": "Should we confirm before opening the file?"
+      "description": "Confirm before opening the file?"
+    },
+    "openProject": {
+      "type": "boolean",
+      "default": false,
+      "title": "Open Project",
+      "description": "Open the project folder as well as the file if the file is part of a project?"
     }
   }
 }
