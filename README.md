@@ -19,4 +19,4 @@ atom://open?url=file://<file_path>[&line=<line>[&column=<column>]][&devMode][&sa
 ## Settings
 
 *   **Confirm**: Confirm before opening the file
-*   **Project**: Open the project folder as well as the file if the file is part of a project
+*   **Open Project**: Open the project folder as well as the file if the file is part of a project
