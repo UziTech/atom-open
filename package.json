@@ -1,7 +1,7 @@
 {
   "name": "open",
   "main": "index.js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Open a file in Atom with a URL",
   "keywords": [
     "open"
