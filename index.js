@@ -62,6 +62,10 @@ export default {
 			detailedMessage: file,
 			buttons: {
 				"Open": () => true,
+				"Never Ask Again": () => {
+					atom.config.set("open.confirmBeforeOpen", false);
+					return true;
+				},
 				"Cancel": () => false,
 			}
 		});
