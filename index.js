@@ -39,11 +39,12 @@ export default {
 			return;
 		}
 
+		const isFirstWindow = atom.project.getPaths().length === 0 && atom.getLoadSettings().initialPaths === 0;
 		const line = (+query.line ? `:${+query.line}` : "");
 		const column = (+query.column ? `:${+query.column}` : "");
 		const devMode = (typeof query.devMode !== "undefined");
 		const safeMode = (typeof query.safeMode !== "undefined");
-		const newWindow = (typeof query.newWindow !== "undefined");
+		const newWindow = (typeof query.newWindow !== "undefined") && !isFirstWindow;
 		let pathsToOpen = [file + line + column];
 
 		if (this.openProject) {
