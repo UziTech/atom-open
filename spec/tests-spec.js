@@ -10,31 +10,11 @@ describe("Open", function () {
 		spyOn(atom, "confirm");
 		this.confirmReturn = (bool) => atom.confirm.and.callFake((options, callback) => callback(bool));
 		this.confirmReturn(true);
-		this.testUrl = ({
-			file = "test/file.ext",
-			line = 0,
-			column = 0,
-			devMode = false,
-			safeMode = false,
-			newWindow = false
-		} = {}) => {
-			const query = {
-				url: `file://${file}`,
-			};
-			if (line) {
-				query.line = line;
-			}
-			if (column) {
-				query.column = column;
-			}
-			if (devMode) {
-				query.devMode = devMode;
-			}
-			if (safeMode) {
-				query.safeMode = safeMode;
-			}
-			if (newWindow) {
-				query.newWindow = newWindow;
+		this.testUrl = (query) => {
+			if (!query) {
+				query = {
+					file: "test/file.ext",
+				};
 			}
 			return url.parse(`atom://open/?${qs.stringify(query)}`, true);
 		};
@@ -105,6 +85,18 @@ describe("Open", function () {
 				devMode: true,
 				safeMode: true,
 				newWindow: true,
+			}));
+		});
+
+		it("should pass params to atom.open using textMate scheme", async function () {
+			await open.handleURI(this.testUrl({
+				url: "file:///path/test.js",
+				line: 1,
+				column: 2,
+			}));
+
+			expect(atom.open).toHaveBeenCalledWith(jasmine.objectContaining({
+				pathsToOpen: ["/path/test.js:1:2"],
 			}));
 		});
 	});
