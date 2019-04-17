@@ -39,7 +39,7 @@ export default {
 			return;
 		}
 
-		const isFirstWindow = atom.project.getPaths().length === 0 && atom.getLoadSettings().initialPaths === 0;
+		const isFirstWindow = atom.project.getPaths().length === 0 && atom.getLoadSettings().initialPaths.length === 0;
 		const line = (+query.line ? `:${+query.line}` : "");
 		const column = (+query.column ? `:${+query.column}` : "");
 		const devMode = (typeof query.devMode !== "undefined");
