@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/UziTech/atom-open/compare/v2.0.0...v2.0.1) (2019-04-17)
+
+
+### Bug Fixes
+
+* **newWindow:** Fix newWindow when no atom window is open ([8af0d3b](https://github.com/UziTech/atom-open/commit/8af0d3b)), closes [#2](https://github.com/UziTech/atom-open/issues/2)
+
 ## [2.0.0](https://github.com/UziTech/atom-open/compare/v1.0.0...v2.0.0) (2019-04-17)
 
 * Release v2.0.0
