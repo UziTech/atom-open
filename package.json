@@ -27,5 +27,17 @@
       "title": "Open Project",
       "description": "Open the project folder as well as the file if the file is part of a project?"
     }
+  },
+  "atomTestRunner": "atom-jasmine3-test-runner",
+  "scripts": {
+    "test": "atom --test spec",
+    "lint": "eslint .",
+    "semantic-release": "semantic-release"
+  },
+  "devDependencies": {
+    "@semantic-release/apm-config": "^6.0.1",
+    "atom-jasmine3-test-runner": "^4.2.0",
+    "eslint": "^5.16.0",
+    "semantic-release": "^15.13.12"
   }
 }
