@@ -1,3 +1,7 @@
+## [1.0.0](https://github.com/UziTech/atom-open/compare/v0.1.3...v1.0.0) (2019-04-17)
+
+* Release v1.0.0
+
 ## [0.1.3](https://github.com/UziTech/atom-open/compare/v0.1.2...v0.1.3) (2019-04-17)
 
 
