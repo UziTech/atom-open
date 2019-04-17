@@ -1,6 +1,6 @@
 "use babel";
 
-import { CompositeDisposable } from "atom";
+import {CompositeDisposable} from "atom";
 
 export default {
 
@@ -28,7 +28,7 @@ export default {
 	},
 
 	async handleURI(uri) {
-		const { query } = uri;
+		const {query} = uri;
 
 		// query.url will overwrite query.file if both exist
 		query.file = query.url || query.file;

@@ -5,7 +5,7 @@ import qs from "querystring";
 import open from "../";
 
 describe("Open", function () {
-	beforeEach(async function () {
+	beforeEach(function () {
 		spyOn(atom, "open");
 		spyOn(atom, "confirm");
 		this.confirmReturn = (bool) => atom.confirm.and.callFake((options, callback) => callback(bool));
