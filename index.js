@@ -27,7 +27,7 @@ export default {
 		this.disposables.dispose();
 	},
 
-	handleURI(uri) {
+	async handleURI(uri) {
 		const { query } = uri;
 
 		// query.url will overwrite query.file if both exist
@@ -58,18 +58,23 @@ export default {
 			}
 		}
 
-		const confirm = !this.confirmBeforeOpen || atom.confirm({
-			message: "Do you want to open the file?",
-			detailedMessage: file,
-			buttons: {
-				"Open": () => true,
-				"Never Ask Again": () => {
-					atom.config.set("open.confirmBeforeOpen", false);
-					return true;
-				},
-				"Cancel": () => false,
-			}
-		});
+		let confirm = true;
+		if (this.confirmBeforeOpen) {
+			confirm = await new Promise(resolve => {
+				atom.confirm({
+					message: "Do you want to open the file?",
+					detailedMessage: file,
+					buttons: {
+						"Open": () => true,
+						"Never Ask Again": () => {
+							atom.config.set("open.confirmBeforeOpen", false);
+							return true;
+						},
+						"Cancel": () => false,
+					}
+				}, resolve);
+			});
+		}
 
 		if (confirm) {
 			atom.open({
