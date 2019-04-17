@@ -10,11 +10,9 @@ describe("Open", function () {
 		spyOn(atom, "confirm");
 		this.confirmReturn = (bool) => atom.confirm.and.callFake((options, callback) => callback(bool));
 		this.confirmReturn(true);
-		this.testUrl = (query) => {
-			if (!query) {
-				query = {
-					file: "test/file.ext",
-				};
+		this.testUrl = (query = {}) => {
+			if (!query.file && !query.url) {
+				query.file = "test/file.ext";
 			}
 			return url.parse(`atom://open/?${qs.stringify(query)}`, true);
 		};
@@ -71,6 +69,7 @@ describe("Open", function () {
 		});
 
 		it("should pass params to atom.open", async function () {
+			spyOn(atom.project, "getPaths").and.returnValue(["test"]);
 			await open.handleURI(this.testUrl({
 				file: "/path/test.js",
 				line: 1,
@@ -85,6 +84,16 @@ describe("Open", function () {
 				devMode: true,
 				safeMode: true,
 				newWindow: true,
+			}));
+		});
+
+		it("should not open newWindow on firstWindow", async function () {
+			await open.handleURI(this.testUrl({
+				newWindow: true,
+			}));
+
+			expect(atom.open).toHaveBeenCalledWith(jasmine.objectContaining({
+				newWindow: false,
 			}));
 		});
 
