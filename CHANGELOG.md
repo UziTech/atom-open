@@ -3,7 +3,10 @@
 
 ### Bug Fixes
 
-* **release:** Add release.config.js ([ef0c1d3](https://github.com/UziTech/atom-open/commit/ef0c1d3))
+* **release:** Add semantic-release ([53649ff](https://github.com/UziTech/atom-open/commit/53649ff))
+* **confirm:** Async confirm dialog ([a4d99c4](https://github.com/UziTech/atom-open/commit/a4d99c4))
+* **new window:** Don't open new window on first window ([8d6b448](https://github.com/UziTech/atom-open/commit/8d6b448))([#2](https://github.com/UziTech/atom-open/issues/2))
+
 
 ## v0.1.1
 
