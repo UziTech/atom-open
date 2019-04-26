@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/UziTech/atom-open/compare/v2.0.1...v2.0.2) (2019-04-26)
+
+
+### Bug Fixes
+
+* **atom:** Fix Atom v1.36.1 ([51869da](https://github.com/UziTech/atom-open/commit/51869da))
+
 ## [2.0.1](https://github.com/UziTech/atom-open/compare/v2.0.0...v2.0.1) (2019-04-17)
 
 
