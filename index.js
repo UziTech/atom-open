@@ -39,7 +39,9 @@ export default {
 			return;
 		}
 
-		const isFirstWindow = atom.project.getPaths().length === 0 && atom.getLoadSettings().initialProjectRoots.length === 0;
+		const loadSettings = atom.getLoadSettings();
+		const initialPaths = loadSettings.initialProjectRoots || loadSettings.initialPaths;
+		const isFirstWindow = atom.project.getPaths().length === 0 && Array.isArray(initialPaths) && initialPaths.length === 0;
 		const line = (+query.line ? `:${+query.line}` : "");
 		const column = (+query.column ? `:${+query.column}` : "");
 		const devMode = (typeof query.devMode !== "undefined");
