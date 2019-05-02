@@ -39,5 +39,8 @@
     "atom-jasmine3-test-runner": "^4.3.1",
     "eslint": "^5.16.0",
     "semantic-release": "^15.13.12"
+  },
+  "dependencies": {
+    "promisificator": "^4.1.1"
   }
 }
