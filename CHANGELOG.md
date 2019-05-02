@@ -1,3 +1,10 @@
+## [2.0.4](https://github.com/UziTech/atom-open/compare/v2.0.3...v2.0.4) (2019-05-02)
+
+
+### Bug Fixes
+
+* **confirm:** Fix async confirm dialog ([ed007e7](https://github.com/UziTech/atom-open/commit/ed007e7)), closes [#6](https://github.com/UziTech/atom-open/issues/6)
+
 ## [2.0.3](https://github.com/UziTech/atom-open/compare/v2.0.2...v2.0.3) (2019-04-26)
 
 
