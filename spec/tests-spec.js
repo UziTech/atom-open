@@ -8,8 +8,8 @@ describe("Open", function () {
 	beforeEach(function () {
 		spyOn(atom, "open");
 		spyOn(atom, "confirm");
-		this.confirmReturn = (bool) => atom.confirm.and.callFake((options, callback) => callback(bool));
-		this.confirmReturn(true);
+		this.confirmReturn = (...args) => atom.confirm.and.callFake((options, callback) => callback(...args));
+		this.confirmReturn(0, false);
 		this.testUrl = (query = {}) => {
 			if (!query.file && !query.url) {
 				query.file = "test/file.ext";
@@ -51,11 +51,20 @@ describe("Open", function () {
 		});
 
 		it("should cancel on no confirm", async function () {
-			this.confirmReturn(false);
+			this.confirmReturn(1, false);
 			await open.handleURI(this.testUrl());
 
 			expect(atom.confirm).toHaveBeenCalled();
 			expect(atom.open).not.toHaveBeenCalled();
+		});
+
+		it("should set confirmBeforeOpen", async function () {
+			expect(atom.config.get("open.confirmBeforeOpen")).toBe(true);
+
+			this.confirmReturn(1, true);
+			await open.handleURI(this.testUrl());
+
+			expect(atom.config.get("open.confirmBeforeOpen")).toBe(false);
 		});
 
 		it("should open project folder", async function () {

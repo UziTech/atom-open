@@ -1,6 +1,7 @@
-"use babel";
+/** @babel */
 
 import {CompositeDisposable} from "atom";
+import {promisify} from "promisificator";
 
 export default {
 
@@ -60,32 +61,35 @@ export default {
 			}
 		}
 
-		let confirm = true;
 		if (this.confirmBeforeOpen) {
-			confirm = await new Promise(resolve => {
-				atom.confirm({
-					message: "Do you want to open the file?",
-					detailedMessage: file,
-					buttons: {
-						"Open": () => true,
-						"Never Ask Again": () => {
-							atom.config.set("open.confirmBeforeOpen", false);
-							return true;
-						},
-						"Cancel": () => false,
-					}
-				}, resolve);
+			const [confirmButton, hideDialog] = await promisify(
+				atom.confirm.bind(atom),
+				{rejectOnError: false, alwaysReturnArray: true}
+			)({
+				checkboxLabel: "Never Show This Dialog Again",
+				message: "Do you want to open the file?",
+				detail: file,
+				buttons: [
+					"Open",
+					"Cancel",
+				]
 			});
+
+			if (hideDialog) {
+				atom.config.set("open.confirmBeforeOpen", false);
+			}
+
+			if (confirmButton === 1) {
+				return;
+			}
 		}
 
-		if (confirm) {
-			atom.open({
-				pathsToOpen,
-				devMode,
-				safeMode,
-				newWindow,
-			});
-		}
+		atom.open({
+			pathsToOpen,
+			devMode,
+			safeMode,
+			newWindow,
+		});
 	},
 
 };
