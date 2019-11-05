@@ -1,7 +1,7 @@
 # Atom Open
 
 [![Build Status](https://travis-ci.com/UziTech/atom-open.svg?branch=master)](https://travis-ci.com/UziTech/atom-open)
-[![Build status](https://ci.appveyor.com/api/projects/status/jpgf8gpx0nqwubrb?svg=true)](https://ci.appveyor.com/project/UziTech/atom-open)
+[![Build status](https://ci.appveyor.com/api/projects/status/jpgf8gpx0nqwubrb/branch/master?svg=true)](https://ci.appveyor.com/project/UziTech/atom-open)
 
 This is an atom package to open URLs with the `atom://` protocol that match the [TextMate URL scheme](http://blog.macromates.com/2007/the-textmate-url-scheme/)
 
