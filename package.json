@@ -31,13 +31,12 @@
   "atomTestRunner": "atom-jasmine3-test-runner",
   "scripts": {
     "test": "atom --test spec",
-    "lint": "eslint .",
-    "semantic-release": "semantic-release"
+    "lint": "eslint ."
   },
   "devDependencies": {
     "@semantic-release/apm-config": "^8.0.0",
     "atom-jasmine3-test-runner": "^4.4.7",
-    "eslint": "^6.8.0",
+    "eslint": "^7.1.0",
     "semantic-release": "^17.0.8"
   },
   "dependencies": {
