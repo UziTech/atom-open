@@ -1,3 +1,10 @@
+## [2.0.5](https://github.com/UziTech/atom-open/compare/v2.0.4...v2.0.5) (2020-06-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependency promisificator to ^4.2.0 ([91949f9](https://github.com/UziTech/atom-open/commit/91949f92d98fb4c2003925b9b359d4c6e4cf8aa4))
+
 ## [2.0.4](https://github.com/UziTech/atom-open/compare/v2.0.3...v2.0.4) (2019-05-02)
 
 
