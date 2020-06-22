@@ -37,7 +37,7 @@
     "@semantic-release/apm-config": "^8.0.0",
     "atom-jasmine3-test-runner": "^4.4.8",
     "eslint": "^7.3.0",
-    "semantic-release": "^17.0.8"
+    "semantic-release": "^17.1.0"
   },
   "dependencies": {
     "promisificator": "^4.2.0"
